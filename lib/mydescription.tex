@@ -1,0 +1,32 @@
+\makeatletter
+\def\Ldescription{%
+  \@ifnextchar[{\beamer@testforospec}{\beamer@descdefault\beamer@descriptionwidth\@@Ldescription}%
+}
+
+\def\beamer@testforospec[{\@ifnextchar<{\beamer@scandefaultospec[}{\@Ldescription[}}%
+
+\def\beamer@scandefaultospec[#1]{\def\beamer@defaultospec{#1}\Ldescription}
+
+\def\@Ldescription[#1]{%
+\setbox\beamer@tempbox=\hbox{\def\insertdescriptionitem{#1}
+  \usebeamertemplate**{description item}}%
+\beamer@descdefault\wd\beamer@tempbox\@@description%
+}%
+
+\def\@@Ldescription{%
+  \beamer@descdefault35pt%
+  \list
+  {}
+  {\labelwidth\beamer@descdefault\leftmargin2.8em\let\makelabel\beamer@Ldescriptionitem}%
+  \beamer@cramped%
+  \raggedright
+  \beamer@firstlineitemizeunskip%
+}
+
+\def\endLdescription{\ifhmode\unskip\fi\endlist}
+\long\def\beamer@Ldescriptionitem#1{%
+  \def\insertdescriptionitem{#1}%
+  \hspace\labelsep{\parbox[b]{\dimexpr\textwidth-\labelsep\relax}{%
+        \usebeamertemplate**{description item}%
+    }}}
+\makeatother
