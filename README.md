@@ -1,6 +1,8 @@
 公平なガチャシステム
 ============================
 
+[![Build Status](https://travis-ci.org/y-yu/fair-gacha-slide.svg?branch=master)](https://travis-ci.org/y-yu/fair-gacha-slide)
+
 ## 成果物
 
 - [fair_gacha.pdf](https://y-yu.github.io/fair-gacha-slide/fair_gacha.pdf)
